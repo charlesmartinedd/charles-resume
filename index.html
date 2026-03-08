@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Charles Martin Jr. — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--sidebar-bg:#1a1a2e;--sidebar-text:#e0e0e0;--accent:#2997ff;--accent-hover:#0a84ff;--main-bg:#ffffff;--text:#333;--text-light:#666;--border:#e5e5e5;--section-bg:#f8f9fa}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--text);background:var(--main-bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:var(--accent-hover);text-decoration:underline}
+
+/* Layout */
+.container{display:flex;min-height:100vh}
+.sidebar{width:320px;min-width:320px;background:var(--sidebar-bg);color:var(--sidebar-text);padding:48px 32px;display:flex;flex-direction:column;gap:32px}
+.main{flex:1;padding:48px 56px;max-width:900px}
+
+/* Sidebar */
+.sidebar h1{font-size:1.75rem;font-weight:700;color:#fff;line-height:1.2}
+.sidebar .title{font-size:0.85rem;font-weight:400;color:var(--accent);margin-top:6px;letter-spacing:0.5px}
+.sidebar-section{border-top:1px solid rgba(255,255,255,0.1);padding-top:20px}
+.sidebar-section h3{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.5);margin-bottom:12px}
+.contact-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;font-size:0.82rem;color:var(--sidebar-text)}
+.contact-item svg{width:16px;height:16px;fill:var(--accent);flex-shrink:0;margin-top:3px}
+.contact-item a{color:var(--sidebar-text)}
+.contact-item a:hover{color:#fff}
+.edu-item{margin-bottom:14px}
+.edu-item .degree{font-size:0.82rem;font-weight:600;color:#fff}
+.edu-item .school{font-size:0.78rem;color:rgba(255,255,255,0.65)}
+.edu-item .year{font-size:0.72rem;color:rgba(255,255,255,0.4)}
+.credential-item{font-size:0.8rem;margin-bottom:6px;color:var(--sidebar-text)}
+.credential-item strong{color:#fff;font-weight:500}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.skill-tag{font-size:0.72rem;background:rgba(41,151,255,0.15);color:var(--accent);padding:4px 10px;border-radius:20px;font-weight:500}
+
+/* Tabs */
+.tabs{display:flex;gap:0;border-bottom:2px solid var(--border);margin-bottom:36px}
+.tab{padding:10px 24px;font-size:0.85rem;font-weight:600;color:var(--text-light);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all 0.2s}
+.tab:hover{color:var(--text)}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+
+/* Main content */
+.section{margin-bottom:36px}
+.section-title{font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text);margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--accent)}
+.summary{font-size:0.9rem;line-height:1.75;color:var(--text-light)}
+
+/* Experience */
+.exp-item{margin-bottom:24px;padding-left:16px;border-left:2px solid var(--border)}
+.exp-item:hover{border-left-color:var(--accent)}
+.exp-header{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px}
+.exp-title{font-size:0.92rem;font-weight:600;color:var(--text)}
+.exp-company{font-size:0.85rem;color:var(--accent);font-weight:500}
+.exp-date{font-size:0.78rem;color:var(--text-light);white-space:nowrap}
+.exp-location{font-size:0.78rem;color:var(--text-light);font-style:italic}
+.exp-bullets{margin-top:8px;padding-left:16px}
+.exp-bullets li{font-size:0.84rem;color:var(--text-light);margin-bottom:4px;line-height:1.6}
+
+/* Group header */
+.exp-group{font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin:28px 0 12px;padding:6px 12px;background:rgba(41,151,255,0.06);border-radius:4px}
+
+/* Cover letter */
+.cover-letter{font-size:0.9rem;line-height:1.85;color:var(--text)}
+.cover-letter p{margin-bottom:16px}
+.cover-letter .greeting{font-weight:600;margin-bottom:20px}
+.cover-letter .closing{margin-top:28px}
+.cover-letter .sig{font-weight:600;margin-top:4px}
+
+/* Print */
+@media print{
+  .sidebar{background:var(--sidebar-bg)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .tabs{display:none}
+  .tab-content{display:block!important}
+  .tab-content#cover{page-break-before:always}
+  body{font-size:11px}
+  .container{min-height:auto}
+}
+@media(max-width:768px){
+  .container{flex-direction:column}
+  .sidebar{width:100%;min-width:100%;padding:32px 24px}
+  .main{padding:32px 24px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div>
+      <h1>Dr. Charles<br>Martin Jr.</h1>
+      <div class="title">Instructional Designer | Researcher | Educator</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Contact</h3>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>Carlsbad, CA</span>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <a href="mailto:charlesmartinedd@gmail.com">charlesmartinedd@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        <a href="tel:+13236320271">(323) 632-0271</a>
+      </div>
+      <div class="contact-item">
+        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <a href="https://www.linkedin.com/in/charlesmartinedd/" target="_blank">linkedin.com/in/charlesmartinedd</a>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Education</h3>
+      <div class="edu-item">
+        <div class="degree">Ed.D., Educational Technology</div>
+        <div class="school">University of Florida</div>
+        <div class="year">2010 – 2015</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">Certificate, School Administration</div>
+        <div class="school">University of Southern California</div>
+        <div class="year">2018 – 2020</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">M.Ed., Middle Childhood Education</div>
+        <div class="school">Georgia State University</div>
+        <div class="year">2005 – 2006</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">B.A., History</div>
+        <div class="school">Georgia State University</div>
+        <div class="year">2001 – 2005</div>
+      </div>
+      <div class="edu-item">
+        <div class="degree">A.A., Spanish / Bilingual Studies</div>
+        <div class="school">Foothill College</div>
+        <div class="year">Pre-2001</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Credentials</h3>
+      <div class="credential-item"><strong>CA</strong> — Multiple Subject Credential</div>
+      <div class="credential-item"><strong>CA</strong> — English Single Subject Credential</div>
+      <div class="credential-item"><strong>CA</strong> — Preliminary Admin Credential</div>
+      <div class="credential-item"><strong>GA</strong> — T-5, Middle Grades Education</div>
+      <div class="credential-item"><strong>GA</strong> — Elementary Education Certificate</div>
+    </div>
+
+    <div class="sidebar-section">
+      <h3>Skills</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Instructional Design</span>
+        <span class="skill-tag">ADDIE / SAM</span>
+        <span class="skill-tag">Curriculum Development</span>
+        <span class="skill-tag">eLearning (Rise 360, Storyline)</span>
+        <span class="skill-tag">LMS Administration</span>
+        <span class="skill-tag">SCORM / xAPI</span>
+        <span class="skill-tag">Research Methods</span>
+        <span class="skill-tag">Educational Technology</span>
+        <span class="skill-tag">AI in Education</span>
+        <span class="skill-tag">Section 508 / ADA</span>
+        <span class="skill-tag">HTML / CSS / JavaScript</span>
+        <span class="skill-tag">Video Production</span>
+        <span class="skill-tag">Grant Writing</span>
+        <span class="skill-tag">K-12 Leadership</span>
+        <span class="skill-tag">Bilingual (English/Spanish)</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <div class="tabs">
+      <div class="tab active" data-tab="resume">Resume</div>
+      <div class="tab" data-tab="cover">Cover Letter</div>
+    </div>
+
+    <!-- RESUME TAB -->
+    <div class="tab-content active" id="resume">
+      <div class="section">
+        <div class="section-title">Professional Summary</div>
+        <p class="summary">
+          Instructional designer, researcher, and educator with a doctorate in Educational Technology and over 15 years of experience spanning K-12 education, higher education, federal government, and the private sector. Currently serving as Vice President at ModelIt / Discovery Collective and as an Instructional Systems Designer supporting Department of Defense programs at Eccalon LLC. Proven track record in eLearning development, curriculum design, faculty instruction, STEM education research, and AI-powered learning solutions. Seeking university-level opportunities in instructional design, educational technology research, and adjunct or tenure-track faculty positions.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Experience</div>
+
+        <div class="exp-group">Current Roles</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Vice President</div>
+              <div class="exp-company">ModelIt / Discovery Collective</div>
+            </div>
+            <div class="exp-date">2024 – Present</div>
+          </div>
+          <div class="exp-location">Remote</div>
+          <ul class="exp-bullets">
+            <li>Lead strategic initiatives for a K-12 STEM education nonprofit focused on systems thinking and computational modeling</li>
+            <li>Oversee eLearning production, curriculum development, and educational technology integration</li>
+            <li>Manage partnerships with universities and school districts for STEM program implementation</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Instructional Systems Designer</div>
+              <div class="exp-company">Eccalon LLC (Department of Defense)</div>
+            </div>
+            <div class="exp-date">Feb 2024 – Present</div>
+          </div>
+          <div class="exp-location">Remote — Supporting DoD Mentor-Protege Program</div>
+          <ul class="exp-bullets">
+            <li>Design and develop interactive eLearning modules, portals, and training systems for DoD programs</li>
+            <li>Apply ADDIE methodology to create Section 508-compliant instructional materials</li>
+            <li>Build SCORM-based training packages, dashboards, and guided interactive experiences</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Director of Instructional Design & Technology</div>
+              <div class="exp-company">Alexandria's Design LLC</div>
+            </div>
+            <div class="exp-date">2020 – Present</div>
+          </div>
+          <div class="exp-location">Carlsbad, CA</div>
+          <ul class="exp-bullets">
+            <li>Lead instructional design practice for a woman-owned small business specializing in eLearning and federal training</li>
+            <li>Pioneer AI-powered workflows in education, integrating generative AI tools into course development pipelines</li>
+            <li>Develop proposals and training solutions for federal contracts (DoD, Navy, Army MedCOE)</li>
+          </ul>
+        </div>
+
+        <div class="exp-group">Higher Education — Adjunct Faculty</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Adjunct Professor — English (ENGL 101/102, ALCR 101)</div>
+              <div class="exp-company">Morgan State University</div>
+            </div>
+            <div class="exp-date">Fall 2024 – Present</div>
+          </div>
+          <div class="exp-location">Baltimore, MD (Online)</div>
+          <ul class="exp-bullets">
+            <li>Teach English Composition I & II and Academic Literacy courses to undergraduate students at an HBCU</li>
+            <li>Design course materials integrating educational technology and culturally responsive pedagogy</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Adjunct Professor — Graduate Education</div>
+              <div class="exp-company">Morningside University</div>
+            </div>
+            <div class="exp-date">Jan 2016 – Present</div>
+          </div>
+          <div class="exp-location">Sioux City, IA (Online)</div>
+          <ul class="exp-bullets">
+            <li>Teach graduate-level education courses with focus on instructional methods and educational technology</li>
+            <li>10+ years of continuous online higher education teaching experience</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Adjunct Professor — History (World Culture & Diversity)</div>
+              <div class="exp-company">Knoxville College</div>
+            </div>
+            <div class="exp-date">Current</div>
+          </div>
+          <div class="exp-location">Knoxville, TN (Online)</div>
+          <ul class="exp-bullets">
+            <li>Teach World Culture & Diversity course at a historically Black college</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Adjunct Professor</div>
+              <div class="exp-company">Baptist University of the Americas</div>
+            </div>
+            <div class="exp-date">Current</div>
+          </div>
+          <div class="exp-location">San Antonio, TX (Online)</div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Adjunct Instructor — Education</div>
+              <div class="exp-company">UC Riverside Extension</div>
+            </div>
+            <div class="exp-date">Past</div>
+          </div>
+          <div class="exp-location">Riverside, CA</div>
+        </div>
+
+        <div class="exp-group">Federal & Industry</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">eLearning Specialist</div>
+              <div class="exp-company">UCLA Health — Semel Institute / UCAAN</div>
+            </div>
+            <div class="exp-date">Feb 2022 – Feb 2026</div>
+          </div>
+          <div class="exp-location">Los Angeles, CA (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Developed eLearning courses and training materials for healthcare professionals using Rise 360 and Storyline</li>
+            <li>Created the "Becoming ACEs Aware" course series for the California Department of Health Care Services</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Instructional Systems Designer</div>
+              <div class="exp-company">US Army MedCOE / 1Prospect (Ahtna)</div>
+            </div>
+            <div class="exp-date">Nov 2021 – 2024</div>
+          </div>
+          <div class="exp-location">Fort Sam Houston, TX (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Designed and developed ISD products for Army Medical Center of Excellence training programs</li>
+            <li>Applied ADDIE/SAM frameworks to military medical education and e-learning solutions</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">eLearning Developer</div>
+              <div class="exp-company">Director of National Intelligence (DNI)</div>
+            </div>
+            <div class="exp-date">2020 – 2021</div>
+          </div>
+          <div class="exp-location">Washington, D.C. (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Developed classified eLearning modules for the U.S. Intelligence Community</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Curriculum Developer, K-12</div>
+              <div class="exp-company">Cell Collective</div>
+            </div>
+            <div class="exp-date">2019 – 2020</div>
+          </div>
+          <div class="exp-location">Lincoln, NE (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Developed K-12 STEM curriculum using computational modeling and systems thinking tools</li>
+            <li>Created teacher guides and student activities for biology and environmental science simulations</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Curriculum Developer</div>
+              <div class="exp-company">Program 11 / Microsoft Education</div>
+            </div>
+            <div class="exp-date">2018 – 2019</div>
+          </div>
+          <div class="exp-location">Redmond, WA (Remote)</div>
+          <ul class="exp-bullets">
+            <li>Developed K-12 computer science and digital literacy curriculum for Microsoft's education initiatives</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Curriculum Specialist</div>
+              <div class="exp-company">Age of Learning (ABCmouse)</div>
+            </div>
+            <div class="exp-date">2017 – 2018</div>
+          </div>
+          <div class="exp-location">Glendale, CA</div>
+          <ul class="exp-bullets">
+            <li>Designed early childhood digital curriculum and learning activities for the ABCmouse platform</li>
+          </ul>
+        </div>
+
+        <div class="exp-group">K-12 Education & Leadership</div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Assistant Administrator</div>
+              <div class="exp-company">Gus Franklin Jr. High School — Adelanto, CA</div>
+            </div>
+            <div class="exp-date">2017 – 2018</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Supported school operations, teacher evaluation, and instructional leadership</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">K-8 Teacher (Computer Lab, Makerspace, ELA, Math, Science)</div>
+              <div class="exp-company">Norton Science & Language Academy — San Bernardino, CA</div>
+            </div>
+            <div class="exp-date">2016 – 2021</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Taught K-5 computer lab, 6th-8th grade English/Math/Science, and managed STEM Makerspace program</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Elementary Teacher & International Educator</div>
+              <div class="exp-company">Fulton County, Cobb County, DeKalb County (GA) & Abu Dhabi (UAE)</div>
+            </div>
+            <div class="exp-date">2005 – 2016</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>10+ years K-8 classroom experience across multiple districts and international settings</li>
+            <li>Taught History, ELA, Science, Math, and all elementary subjects</li>
+            <li>International teaching and administrative experience in Abu Dhabi, UAE</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Research Interests</div>
+        <p class="summary">
+          AI-powered instructional design and adaptive learning systems; computational modeling and systems thinking in K-12 STEM education; culturally responsive pedagogy in online higher education; educational technology integration in federal training environments; eLearning accessibility and Section 508 compliance.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Select Projects & Grants</div>
+        <ul class="exp-bullets" style="padding-left:16px">
+          <li><strong>NSF STEM K-12 Grant Proposal (Co-PI)</strong> — Developing proposal under NSF 25-545 for computational modeling in K-12 science education ($350K-$500K)</li>
+          <li><strong>DoD Mentor-Protege Program eLearning Suite</strong> — Designed and built interactive training portal, SCORM courses, and guided tours for OSBP</li>
+          <li><strong>Becoming ACEs Aware (UCLA Health)</strong> — Rise 360 eLearning course series for California DHCS healthcare professional training</li>
+          <li><strong>CAAASA Video Production</strong> — AI-powered video production pipeline for the California Association of African American Superintendents</li>
+          <li><strong>Cell Collective / ModelIt K-12 Curriculum</strong> — Systems thinking and computational modeling curriculum for middle and high school science</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- COVER LETTER TAB -->
+    <div class="tab-content" id="cover">
+      <div class="cover-letter">
+        <p class="greeting">Dear Hiring Committee,</p>
+
+        <p>I am writing to express my strong interest in opportunities within your department related to instructional design, educational technology, and faculty instruction. With a Doctorate in Educational Technology from the University of Florida, over 10 years of online higher education teaching experience, and a career spanning K-12 education, federal government, and the private sector, I bring a unique combination of academic rigor and real-world instructional design expertise.</p>
+
+        <p>Throughout my career, I have designed and developed eLearning solutions for organizations including the Department of Defense, the Director of National Intelligence, UCLA Health, Microsoft Education, and the U.S. Army Medical Center of Excellence. I currently serve as Vice President at ModelIt / Discovery Collective, where I lead STEM education initiatives focused on computational modeling and systems thinking in K-12 settings. Simultaneously, I teach as an adjunct professor at multiple institutions, including Morgan State University, Morningside University, Knoxville College, and Baptist University of the Americas, delivering courses in English composition, graduate education, and world cultures.</p>
+
+        <p>I am particularly passionate about pioneering AI-powered workflows in education, a focus area I have been advancing through my work at Alexandria's Design LLC, where I direct instructional design and technology innovation for federal and commercial training projects. My research interests include adaptive learning systems, culturally responsive online pedagogy, STEM education through computational modeling, and eLearning accessibility.</p>
+
+        <p>I would welcome the opportunity to contribute to your institution through teaching, research collaboration, or instructional design leadership. I am confident that my interdisciplinary background and commitment to educational innovation would be a valuable addition to your team.</p>
+
+        <div class="closing">
+          <p>Sincerely,</p>
+          <p class="sig">Dr. Charles Martin Jr., Ed.D.</p>
+          <p style="font-size:0.85rem;color:var(--text-light)">(323) 632-0271 | charlesmartinedd@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
